@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "fFI5dp/KaEh4KcHlfe+xcepyWsxDqaDfwqJ+IBc/K5mKoIf7MwX3Y1g46MZ3qgFX9svwAJX+mrSg6v6uRwb7nw==",
+  "success": true,
+  "projectFilePath": "D:\\programacion grafica\\grafica\\grafica.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\angel\\.nuget\\packages\\opentk\\3.0.0\\opentk.3.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"OpenTK 3.0.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net5.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "OpenTK",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}
