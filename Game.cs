@@ -20,30 +20,31 @@ namespace grafica
         }
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-            GL.LoadIdentity();
+            //GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            GL.Rotate(theta,10.0,10.0,0.0);
-            Silla silla = new Silla(15,30,15);
-            silla.centrDeMasa = new Vector3(0,0,0);
+            //GL.Rotate(theta,1.0,0.0,0.0);
+            //Silla silla = new Silla(15,30,15,new Vector3(-15,-25,-100)); 
+            //silla.paint();
+            Mesa mesa = new Mesa(30,20,30,new Vector3(0,20,-100));
+            mesa.paint();
+            Silla silla = new Silla(15,30,15,new Vector3(-15,15,-100)); 
             silla.paint();
-     
             Context.SwapBuffers();
             base.OnRenderFrame(e);
             theta+=0.3;
-            if(theta > 360){
+            /*if(theta > 360){
                 theta -=360 ;
-            }
+            }*/
         }
         protected override void OnResize(EventArgs e)
         {
             GL.Viewport(0,0,Width,Height);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-            //Matrix4 matrix = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f),(float)(Width/Height),0.01f,300.0f);
-            //GL.LoadMatrix(ref matrix);
-            GL.Ortho(-100,100,-100,100,-100f,100.0f);
+            Matrix4 matrix = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(90.0f),(float)(Width/Height),0.01f,300.0f);
+            GL.LoadMatrix(ref matrix);
+            //GL.Ortho(-100,100,-100,100,-100f,100.0f);
             GL.MatrixMode(MatrixMode.Modelview);
-            
             base.OnResize(e);
             
         }

@@ -3,15 +3,16 @@ using OpenTK.Graphics.OpenGL;
 
 namespace grafica.objetos
 {
-    public class Cubo
+    public class Cubo:IFigura
     {
         float widthC,heigthC,widthZC;
-        Vector3 cm = new Vector3(0,0,0);
+        Vector3 cm;
         
         public Cubo(float widthC,float heigthC,float widthZC){
             this.widthC = widthC;
             this.heigthC = heigthC;
             this.widthZC = widthZC;
+            this.cm = new Vector3(0,0,0);
         }
         public Cubo(float widthC,float heigthC,float widthZC,Vector3 centroMasa){
             this.widthC = widthC;
@@ -20,11 +21,7 @@ namespace grafica.objetos
             this.cm = centroMasa;
         }
 
-        public Vector3 centrDeMasa{
-
-            get{ return this.cm; }
-            set { this.cm = value ;}
-        }
+        public Vector3 CentroMasa { get => this.cm; set => this.cm = value; }
 
         private void caraDelantera(float medioX,float medioY,float medioZ){
             GL.Begin(PrimitiveType.Polygon);
@@ -49,7 +46,6 @@ namespace grafica.objetos
             GL.Vertex3(cm.X - medioX, cm.Y + medioY,cm.Z + medioZ);
             GL.Vertex3(cm.X - medioX, cm.Y - medioY,cm.Z + medioZ);
             GL.Vertex3(cm.X - medioX, cm.Y - medioY,cm.Z - medioZ);
-
             GL.End();
         }
         private void caraLadoDerecho(float medioX,float medioY,float medioZ){
@@ -89,5 +85,9 @@ namespace grafica.objetos
 
         }
 
+        public void move()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
