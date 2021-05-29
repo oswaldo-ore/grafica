@@ -8,7 +8,6 @@ namespace grafica
 {
     public class Game : GameWindow
     {
-        double theta = 0.0;
         public Game(int width, int heigth,string title) : base(width,heigth,GraphicsMode.Default,title){
 
         }
@@ -31,10 +30,6 @@ namespace grafica
             silla.paint();
             Context.SwapBuffers();
             base.OnRenderFrame(e);
-            theta+=0.3;
-            /*if(theta > 360){
-                theta -=360 ;
-            }*/
         }
         protected override void OnResize(EventArgs e)
         {

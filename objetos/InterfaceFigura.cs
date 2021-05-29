@@ -1,4 +1,3 @@
-using OpenTK;
 
 namespace grafica.objetos
 {

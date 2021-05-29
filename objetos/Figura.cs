@@ -2,33 +2,13 @@ using OpenTK;
 
 namespace grafica.objetos
 {
-    public class Figura
+    public abstract class Figura:IFigura
     {
-        private float width,heigth,depth;
-        
-        Vector3 cm;
+        public float width,heigth,depth;
+        public Vector3 cm = new Vector3(0,0,0);
 
-        public Figura(float width,float heigth,float depth)
-        {
-            this.width = width;
-            this.heigth = heigth;
-            this.depth = depth;
-        }
+        public abstract void move();
 
-        public Figura(float width,float heigth,float depth, Vector3 centroMasa)
-        {
-            this.width = width;
-            this.heigth = heigth;
-            this.depth = depth;
-            this.cm = centroMasa;
-        }
-
-
-        
-
-        public float Width { get => width; set => width = value; }
-        public float Heigth { get => heigth; set => heigth = value; }
-        public float Depth { get => depth; set => depth = value; }
-        public Vector3 Cm { get => cm; set => cm = value; }
+        public abstract void paint();
     }
 }
