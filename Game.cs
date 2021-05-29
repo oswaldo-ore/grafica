@@ -8,7 +8,7 @@ using OpenTK.Graphics.OpenGL;
 namespace grafica
 {
     public class Game : GameWindow
-    {   Dictionary<String,Figura> partesObjeto = new Dictionary<string, Figura>(){
+    {   Dictionary<String,Figura> partesObjeto = new Dictionary<String, Figura>(){
                 {"silla", new Silla(15,30,15,new Vector3(15,15,-100))},
                 {"mesa" , new Mesa(30,20,30,new Vector3(30,20,-100))},
                 {"silla1", new Silla(10,20,10)}
@@ -29,7 +29,6 @@ namespace grafica
             partesObjeto["silla"].paint();
             partesObjeto["mesa"].paint();
             partesObjeto["silla1"].paint();
-            
             Context.SwapBuffers();
             base.OnRenderFrame(e);
         }
