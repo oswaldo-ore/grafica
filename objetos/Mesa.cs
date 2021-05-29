@@ -7,13 +7,12 @@ namespace grafica.objetos
 {
     public class Mesa : Figura
     {   float grosorPata;
-        Dictionary<String,Figura> partes;
 
         public Vector3 centroMasa { get => cm; set => cm = value; }
 
         private void cargarMesa(){
             float medioX = width / 2, medioY = heigth/2, medioZ = depth /2, medioGro = grosorPata / 2;
-            partes = new Dictionary<String,Figura>(){
+            partesObjeto = new Dictionary<String,Figura>(){
                 {"tabla" , new Cubo(width,grosorPata,depth,cm)},
                 {"patatraseraizquierda" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X - medioX + medioGro, cm.Y - medioY, cm.Z + medioZ - medioGro))} ,
                 {"patatraseraderecha" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X  - medioX + medioGro, cm.Y - medioY, cm.Z - medioZ + medioGro))},
@@ -47,7 +46,7 @@ namespace grafica.objetos
         {
             GL.Color3(0.1,0.8,0.7);
             cargarMesa();
-            foreach (var figura in partes)
+            foreach (var figura in partesObjeto)
             {
                 figura.Value.paint();
             }

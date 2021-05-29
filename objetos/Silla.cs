@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -5,9 +6,7 @@ using OpenTK.Graphics.OpenGL;
 namespace grafica.objetos
 {
     public class Silla:Figura
-    {
-        List<Figura> objectosSilla;
-        float grosorPata;
+    {   float grosorPata;
         
         public Silla(float widthS,float heigthS,float widthZS){
             width = widthS;
@@ -25,13 +24,13 @@ namespace grafica.objetos
 
         private void cargarSilla(){
             float medioX= width/2,medioY = heigth/2,medioZ= depth/2,medioGro = grosorPata /2;
-            objectosSilla = new List<Figura>(){
-                new Cubo(width,grosorPata,depth,this.cm), //asiento
-                new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y /*+ medioY*/, this.cm.Z + medioZ - medioGro)), //pataIzquierdaDelantera
-                new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y /* + medioY*/, this.cm.Z - medioZ + medioGro)), //pataIzquierdaTrasera
-                new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2,this.cm.Z - medioZ + medioGro)), //pataDerechaDelantera
-                new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2, this.cm.Z + medioZ - medioGro)), //pataDerechaTrasera
-                new Cubo(grosorPata,grosorPata,depth,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y + medioY - medioGro, this.cm.Z)),
+            partesObjeto =new  Dictionary<String,Figura>(){
+                {"asiento" , new Cubo(width,grosorPata,depth,this.cm)},
+                {"pataIzquierdaDelantera" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y , this.cm.Z + medioZ - medioGro))} ,
+                {"pataIzquierdaTrasera" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y /* + medioY*/, this.cm.Z - medioZ + medioGro))},
+                {"pataDerechaDelantera",new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2,this.cm.Z - medioZ + medioGro))},
+                {"pataDerechaTrasera", new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2, this.cm.Z + medioZ - medioGro))},
+                {"tablonDeAtras", new Cubo(grosorPata,grosorPata,depth,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y + medioY - medioGro, this.cm.Z))}
             };
         }
         public Vector3 centroMasa { get => cm; set => cm = value; }
@@ -46,8 +45,9 @@ namespace grafica.objetos
         {
             GL.Color3(0.6,0.8,0.7);
             cargarSilla();
-            for (int i = 0; i < objectosSilla.Count ; i++){
-                objectosSilla[i].paint();
+            foreach (var figura in partesObjeto)
+            {
+                figura.Value.paint();
             }
         }
     }

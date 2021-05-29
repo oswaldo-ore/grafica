@@ -17,7 +17,7 @@ namespace grafica.objetos
             cm = centroMasa;
         }
 
-        public Vector3 CentroMasa { get => this.cm; set => this.cm = value; }
+        public Vector3 CentroMasa { get => cm; set => cm = value; }
 
         private void caraDelantera(float medioX,float medioY,float medioZ){
             GL.Begin(PrimitiveType.Polygon);
@@ -33,7 +33,6 @@ namespace grafica.objetos
             GL.Vertex3(cm.X + medioX, cm.Y + medioY,cm.Z - medioZ);
             GL.Vertex3(cm.X + medioX, cm.Y - medioY,cm.Z - medioZ);
             GL.Vertex3(cm.X - medioX, cm.Y - medioY,cm.Z - medioZ);
-
             GL.End();
         }
         private void caraLadoIzquierdo(float medioX,float medioY,float medioZ){
