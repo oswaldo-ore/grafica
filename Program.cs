@@ -6,7 +6,7 @@ namespace grafica
     {
         static void Main(string[] args)
         {
-             using (Game game = new Game(800,600,"Silla"))
+             using (Game game = new Game(800,600,"Escenario Oswaldo"))
              {
                  game.Run(60.0);
              }
