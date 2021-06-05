@@ -8,12 +8,12 @@ using OpenTK.Graphics.OpenGL;
 namespace grafica
 {
     public class Game : GameWindow
-    {   Dictionary<String,Figura> partesObjeto = new Dictionary<String, Figura>(){
-                {"silla", new Silla(15,30,15,new Vector3(15,15,-100))},
-                {"mesa" , new Mesa(30,20,30,new Vector3(30,20,-100))},
-                {"silla1", new Silla(10,20,10)}
-            };
+    {   
+        Escenario es1;
         public Game(int width, int heigth,string title) : base(width,heigth,GraphicsMode.Default,title){
+            es1 = new Escenario(200,200,300,new Vector3(0,0,0));
+            es1.add("silla",new Silla(15,30,15,new Vector3(15,15,-100)));
+            es1.add("mesa" , new Mesa(30,20,30,new Vector3(30,20,-100)));
         }
 
         protected override void OnLoad(EventArgs e)
@@ -23,12 +23,8 @@ namespace grafica
         }
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-            //GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            //GL.Rotate(theta,1.0,0.0,0.0);
-            partesObjeto["silla"].paint();
-            partesObjeto["mesa"].paint();
-            partesObjeto["silla1"].paint();
+            es1.paint();
             Context.SwapBuffers();
             base.OnRenderFrame(e);
         }

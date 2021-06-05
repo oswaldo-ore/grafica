@@ -5,14 +5,14 @@ D:\programacion grafica\grafica\bin\Debug\net5.0\grafica.runtimeconfig.dev.json
 D:\programacion grafica\grafica\bin\Debug\net5.0\grafica.dll
 D:\programacion grafica\grafica\bin\Debug\net5.0\ref\grafica.dll
 D:\programacion grafica\grafica\bin\Debug\net5.0\grafica.pdb
+D:\programacion grafica\grafica\bin\Debug\net5.0\OpenTK.dll
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.csprojAssemblyReference.cache
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.GeneratedMSBuildEditorConfig.editorconfig
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.AssemblyInfoInputs.cache
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.AssemblyInfo.cs
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.csproj.CoreCompileInputs.cache
+D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.csproj.CopyComplete
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.dll
 D:\programacion grafica\grafica\obj\Debug\net5.0\ref\grafica.dll
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.pdb
 D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.genruntimeconfig.cache
-D:\programacion grafica\grafica\obj\Debug\net5.0\grafica.csproj.CopyComplete
-D:\programacion grafica\grafica\bin\Debug\net5.0\OpenTK.dll

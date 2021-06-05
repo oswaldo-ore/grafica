@@ -8,16 +8,16 @@ namespace grafica.objetos
     public class Mesa : Figura
     {   float grosorPata;
 
-        public Vector3 centroMasa { get => cm; set => cm = value; }
+        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
 
         private void cargarMesa(){
             float medioX = width / 2, medioY = heigth/2, medioZ = depth /2, medioGro = grosorPata / 2;
             partesObjeto = new Dictionary<String,Figura>(){
-                {"tabla" , new Cubo(width,grosorPata,depth,cm)},
-                {"patatraseraizquierda" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X - medioX + medioGro, cm.Y - medioY, cm.Z + medioZ - medioGro))} ,
-                {"patatraseraderecha" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X  - medioX + medioGro, cm.Y - medioY, cm.Z - medioZ + medioGro))},
-                {"patadelanteraizquierda",new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X  +medioX - medioGro, cm.Y - medioY   ,cm.Z - medioZ + medioGro))},
-                {"patadelanteraderecha", new Cubo(grosorPata,heigth,grosorPata,new Vector3(cm.X +medioX - medioGro, cm.Y - medioY , cm.Z + medioZ - medioGro))},
+                {"tabla" , new Parte(width,grosorPata,depth,vectorPosicion)},
+                {"patatraseraizquierda" , new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X - medioX + medioGro, vectorPosicion.Y - medioY, vectorPosicion.Z + medioZ - medioGro))} ,
+                {"patatraseraderecha" , new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X  - medioX + medioGro, vectorPosicion.Y - medioY, vectorPosicion.Z - medioZ + medioGro))},
+                {"patadelanteraizquierda",new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X  +medioX - medioGro, vectorPosicion.Y - medioY   ,vectorPosicion.Z - medioZ + medioGro))},
+                {"patadelanteraderecha", new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X +medioX - medioGro, vectorPosicion.Y - medioY , vectorPosicion.Z + medioZ - medioGro))},
             };
         }
 
@@ -25,7 +25,7 @@ namespace grafica.objetos
             width = widthM;
             heigth = heigthM;
             depth = widthZM;
-            cm = centroMasa;
+            vectorPosicion = centroMasa;
             this.grosorPata = (float)(widthM * 0.05);
         }
 
@@ -44,12 +44,21 @@ namespace grafica.objetos
 
         public override void paint()
         {
-            GL.Color3(0.1,0.8,0.7);
             cargarMesa();
             foreach (var figura in partesObjeto)
             {
                 figura.Value.paint();
             }
+        }
+
+        public override void rotar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void trasladar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

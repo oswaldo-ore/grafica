@@ -18,22 +18,22 @@ namespace grafica.objetos
             width = widthS;
             heigth = heigthS;
             depth = widthZS;
-            cm = centroMasa;
+            vectorPosicion = centroMasa;
             this.grosorPata = (float)(widthS * 0.05);
         }
 
         private void cargarSilla(){
             float medioX= width/2,medioY = heigth/2,medioZ= depth/2,medioGro = grosorPata /2;
             partesObjeto =new  Dictionary<String,Figura>(){
-                {"asiento" , new Cubo(width,grosorPata,depth,this.cm)},
-                {"pataIzquierdaDelantera" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y , this.cm.Z + medioZ - medioGro))} ,
-                {"pataIzquierdaTrasera" , new Cubo(grosorPata,heigth,grosorPata,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y /* + medioY*/, this.cm.Z - medioZ + medioGro))},
-                {"pataDerechaDelantera",new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2,this.cm.Z - medioZ + medioGro))},
-                {"pataDerechaTrasera", new Cubo(grosorPata,medioY,grosorPata,new Vector3(this.cm.X + medioX - medioGro, this.cm.Y - medioY / 2, this.cm.Z + medioZ - medioGro))},
-                {"tablonDeAtras", new Cubo(grosorPata,grosorPata,depth,new Vector3(this.cm.X - medioX + medioGro, this.cm.Y + medioY - medioGro, this.cm.Z))}
+                {"asiento" , new Parte(width,grosorPata,depth,this.vectorPosicion)},
+                {"pataIzquierdaDelantera" , new Parte(grosorPata,heigth,grosorPata,new Vector3(this.vectorPosicion.X - medioX + medioGro, this.vectorPosicion.Y , this.vectorPosicion.Z + medioZ - medioGro))} ,
+                {"pataIzquierdaTrasera" , new Parte(grosorPata,heigth,grosorPata,new Vector3(this.vectorPosicion.X - medioX + medioGro, this.vectorPosicion.Y /* + medioY*/, this.vectorPosicion.Z - medioZ + medioGro))},
+                {"pataDerechaDelantera",new Parte(grosorPata,medioY,grosorPata,new Vector3(this.vectorPosicion.X + medioX - medioGro, this.vectorPosicion.Y - medioY / 2,this.vectorPosicion.Z - medioZ + medioGro))},
+                {"pataDerechaTrasera", new Parte(grosorPata,medioY,grosorPata,new Vector3(this.vectorPosicion.X + medioX - medioGro, this.vectorPosicion.Y - medioY / 2, this.vectorPosicion.Z + medioZ - medioGro))},
+                {"tablonDeAtras", new Parte(grosorPata,grosorPata,depth,new Vector3(this.vectorPosicion.X - medioX + medioGro, this.vectorPosicion.Y + medioY - medioGro, this.vectorPosicion.Z))}
             };
         }
-        public Vector3 centroMasa { get => cm; set => cm = value; }
+        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
 
 
         public override void move()
@@ -43,12 +43,21 @@ namespace grafica.objetos
 
         public override void paint()
         {
-            GL.Color3(0.6,0.8,0.7);
             cargarSilla();
             foreach (var figura in partesObjeto)
             {
                 figura.Value.paint();
             }
+        }
+
+        public override void rotar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void trasladar()
+        {
+            throw new NotImplementedException();
         }
     }
 }
