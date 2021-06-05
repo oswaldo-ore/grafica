@@ -10,6 +10,7 @@ namespace grafica.objetos
             heigth = heigthS;
             depth = widthZS;
         }
+        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
         public Escenario(float widthS,float heigthS,float widthZS,Vector3 centroMasa){
             width = widthS;
             heigth = heigthS;
@@ -19,6 +20,14 @@ namespace grafica.objetos
 
         public void add(System.String key,Figura figura){
             partesObjeto.Add(key,figura);
+        }
+
+        public void eliminar(string key){
+            partesObjeto.Remove(key);
+        }
+
+        public Figura get(string key){
+            return partesObjeto[key];
         }
         public override void move()
         {
