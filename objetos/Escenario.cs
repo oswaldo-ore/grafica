@@ -10,7 +10,6 @@ namespace grafica.objetos
             heigth = heigthS;
             depth = widthZS;
         }
-        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
         public Escenario(float widthS,float heigthS,float widthZS,Vector3 centroMasa){
             width = widthS;
             heigth = heigthS;
@@ -19,6 +18,10 @@ namespace grafica.objetos
         }
 
         public void add(System.String key,Figura figura){
+            figura.vectorPosicion = new Vector3(
+            vectorPosicion.X + figura.vectorPosicion.X,
+            vectorPosicion.Y + figura.vectorPosicion.Y,
+            vectorPosicion.Z + figura.vectorPosicion.Z);
             partesObjeto.Add(key,figura);
         }
 

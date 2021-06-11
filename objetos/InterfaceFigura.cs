@@ -6,6 +6,6 @@ namespace grafica.objetos
         void paint();
         void move();   
         void rotar();
-        void trasladar();     
-     }
+        void trasladar();
+    }
 }

@@ -6,7 +6,8 @@ using OpenTK.Graphics.OpenGL;
 namespace grafica.objetos
 {
     public class Silla:Figura
-    {   float grosorPata;
+    {   
+        float grosorPata;
         
         public Silla(float widthS,float heigthS,float widthZS){
             width = widthS;
@@ -33,9 +34,6 @@ namespace grafica.objetos
                 {"tablonDeAtras", new Parte(grosorPata,grosorPata,depth,new Vector3(this.vectorPosicion.X - medioX + medioGro, this.vectorPosicion.Y + medioY - medioGro, this.vectorPosicion.Z))}
             };
         }
-        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
-
-
         public override void move()
         {
             throw new System.NotImplementedException();

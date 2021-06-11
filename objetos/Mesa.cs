@@ -8,8 +8,6 @@ namespace grafica.objetos
     public class Mesa : Figura
     {   float grosorPata;
 
-        public Vector3 centroMasa { get => vectorPosicion; set => vectorPosicion = value; }
-
         private void cargarMesa(){
             float medioX = width / 2, medioY = heigth/2, medioZ = depth /2, medioGro = grosorPata / 2;
             partesObjeto = new Dictionary<String,Figura>(){
