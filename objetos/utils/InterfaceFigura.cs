@@ -1,7 +1,7 @@
 
 namespace grafica.objetos
 {
-    public interface IFigura
+    public interface InterfaceFigura
     {         
         void paint();
         void move();   

@@ -25,6 +25,8 @@ namespace grafica.objetos
             depth = widthZM;
             vectorPosicion = centroMasa;
             this.grosorPata = (float)(widthM * 0.05);
+            cargarMesa();
+
         }
 
         public Mesa(float widthM, float heigthM, float widthZM){
@@ -32,21 +34,13 @@ namespace grafica.objetos
             heigth = heigthM;
             depth = widthZM;
             this.grosorPata = (float)(widthM * 0.05);
+            cargarMesa();
         }
 
 
         public override void move()
         {
             throw new NotImplementedException();
-        }
-
-        public override void paint()
-        {
-            cargarMesa();
-            foreach (var figura in partesObjeto)
-            {
-                figura.Value.paint();
-            }
         }
 
         public override void rotar()

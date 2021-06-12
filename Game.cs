@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using grafica.objetos;
 using OpenTK;
 using OpenTK.Graphics;
@@ -25,6 +24,8 @@ namespace grafica
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             es1.paint();
+            //Figura silla = new Silla(15,30,15,new Vector3(15,15,-100));
+            //silla.paint();
             Context.SwapBuffers();
             base.OnRenderFrame(e);
         }

@@ -1,3 +1,4 @@
+using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
@@ -76,6 +77,7 @@ namespace grafica.objetos
 
         public override void paint()
         {
+            Console.WriteLine("paint del cubo");
             float medioX = width/2, medioY = heigth/2, medioZ = depth/2;
             caraDelantera(medioX,medioY,medioZ);
             caraTrasera(medioX,medioY,medioZ);

@@ -14,6 +14,7 @@ namespace grafica.objetos
             heigth = heigthS;
             depth = widthZS;
             this.grosorPata = (float)(heigthS * 0.05);
+            cargarSilla();
         }
         public Silla(float widthS,float heigthS,float widthZS,Vector3 centroMasa){
             width = widthS;
@@ -21,6 +22,7 @@ namespace grafica.objetos
             depth = widthZS;
             vectorPosicion = centroMasa;
             this.grosorPata = (float)(widthS * 0.05);
+            cargarSilla();
         }
 
         private void cargarSilla(){
@@ -37,15 +39,6 @@ namespace grafica.objetos
         public override void move()
         {
             throw new System.NotImplementedException();
-        }
-
-        public override void paint()
-        {
-            cargarSilla();
-            foreach (var figura in partesObjeto)
-            {
-                figura.Value.paint();
-            }
         }
 
         public override void rotar()

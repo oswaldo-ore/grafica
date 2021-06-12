@@ -37,14 +37,6 @@ namespace grafica.objetos
             throw new System.NotImplementedException();
         }
 
-        public override void paint()
-        {
-            foreach (var figura in partesObjeto)
-            {
-                figura.Value.paint();
-            }
-        }
-
         public override void rotar()
         {
             throw new System.NotImplementedException();
