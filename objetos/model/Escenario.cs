@@ -1,3 +1,4 @@
+using System;
 using OpenTK;
 
 namespace grafica.objetos
@@ -14,14 +15,10 @@ namespace grafica.objetos
             width = widthS;
             heigth = heigthS;
             depth = widthZS;
-            vectorPosicion = centroMasa;
+            vectorPosicion = new Vector3(centroMasa);
         }
 
-        public void add(System.String key,Figura figura){
-            figura.vectorPosicion = new Vector3(
-            vectorPosicion.X + figura.vectorPosicion.X,
-            vectorPosicion.Y + figura.vectorPosicion.Y,
-            vectorPosicion.Z + figura.vectorPosicion.Z);
+        public void add(String key,Figura figura){
             partesObjeto.Add(key,figura);
         }
 
@@ -31,20 +28,6 @@ namespace grafica.objetos
 
         public Figura get(string key){
             return partesObjeto[key];
-        }
-        public override void move()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void rotar()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void trasladar()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

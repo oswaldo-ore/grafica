@@ -25,6 +25,7 @@ namespace grafica.objetos
             cargarSilla();
         }
 
+
         private void cargarSilla(){
             float medioX= width/2,medioY = heigth/2,medioZ= depth/2,medioGro = grosorPata /2;
             partesObjeto =new  Dictionary<String,Figura>(){
@@ -36,19 +37,9 @@ namespace grafica.objetos
                 {"tablonDeAtras", new Parte(grosorPata,grosorPata,depth,new Vector3(this.vectorPosicion.X - medioX + medioGro, this.vectorPosicion.Y + medioY - medioGro, this.vectorPosicion.Z))}
             };
         }
-        public override void move()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public override void rotar()
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public override void trasladar()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

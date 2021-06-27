@@ -11,7 +11,7 @@ namespace grafica.objetos
         private void cargarMesa(){
             float medioX = width / 2, medioY = heigth/2, medioZ = depth /2, medioGro = grosorPata / 2;
             partesObjeto = new Dictionary<String,Figura>(){
-                {"tabla" , new Parte(width,grosorPata,depth,vectorPosicion)},
+                {"tabla" , new Parte(width,grosorPata,depth,new Vector3(vectorPosicion.X,vectorPosicion.Y,vectorPosicion.Z))},
                 {"patatraseraizquierda" , new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X - medioX + medioGro, vectorPosicion.Y - medioY, vectorPosicion.Z + medioZ - medioGro))} ,
                 {"patatraseraderecha" , new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X  - medioX + medioGro, vectorPosicion.Y - medioY, vectorPosicion.Z - medioZ + medioGro))},
                 {"patadelanteraizquierda",new Parte(grosorPata,heigth,grosorPata,new Vector3(vectorPosicion.X  +medioX - medioGro, vectorPosicion.Y - medioY   ,vectorPosicion.Z - medioZ + medioGro))},
@@ -38,19 +38,6 @@ namespace grafica.objetos
         }
 
 
-        public override void move()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void rotar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void trasladar()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
